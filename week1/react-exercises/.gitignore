@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+reportWebVitals.js
+favicon.ico
+logo512.png
+package.json
