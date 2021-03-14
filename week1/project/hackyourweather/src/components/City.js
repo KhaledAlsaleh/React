@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react'; // I don't have to import React since we use a functional component 
 
 const City = ({cityName,countryName,weatherMain,weatherDescription,
                 minTemperature,maxTemperature,longitude,latitude}) => {

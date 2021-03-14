@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Guarantee from './Guarantee';
 import uuid from 'react-uuid';
 import freeShipping from '../images/f-delivery.png';

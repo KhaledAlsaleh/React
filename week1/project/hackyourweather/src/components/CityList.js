@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react'; // I don't have to import React since we use a functional component 
+
 import City from './City';
 import cities from '../json/city-weather.json';
 const CityList = () => {
