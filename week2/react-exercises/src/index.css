@@ -26,7 +26,15 @@
   color: black;
   font-size: large;
   display: flex;
+}
 
+#jokeInfo p{
+  background: #f4f4f4;
+  margin: 10px 0 10px 0;
+  padding: 15px 10px;
+  cursor: pointer;
+  color: black;
+  font-size: large;
 }
 
 #friendInfo li span{

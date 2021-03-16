@@ -28,7 +28,7 @@ const DogGallery = () => {
             <div>
                 {!hasError && isLoading && <p id='loading'>Loading....</p>}
                 <div id='dogBox'>
-                    {!hasError && dogPhotos.length > 0 ? dogPhotos.map(dogPhoto => <DogPhoto dogUrl={dogPhoto}/>) : <p className='initialDog'>Get your first dog by clicking the button!</p>}
+                    {!hasError && dogPhotos.length > 0 ? dogPhotos.map((dogPhoto,index) => <DogPhoto key={index} dogUrl={dogPhoto}/>) : <p className='initialDog'>Get your first dog by clicking the button!</p>}
                 </div>
                 {hasError && <p id='error'>Something Went Wrong!</p>}
             </div>

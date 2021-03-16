@@ -15,10 +15,10 @@ const Friend = () => {
             setLoading(true);
             const response = await fetch('https://www.randomuser.me/api?results=1');
             const data = await response.json();
-            if(Object.keys(data).length > 0) {
-                setFriend(data.results[0]);
-                setLoading(false);
-            }
+            // if(Object.keys(data).length > 0) {
+            setFriend(data.results[0]);
+            setLoading(false);
+            // }
         } catch(error){
             setHasError(true);
             setLoading(false);
@@ -32,7 +32,7 @@ const Friend = () => {
 
     return (
         <div className='exerciseBlock'>
-            <h1>Exercise 1</h1>
+            <h2>Exercise 1</h2>
             <Button onClickHandler={getFriend}/>
             {!hasError && isLoading && <p id='loading'>Loading....</p>}
             {!hasError && <FriendProfile props={friend}/>}
