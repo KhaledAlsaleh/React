@@ -1,24 +1,22 @@
-
 .exerciseBlock {
   padding: 10px;
   margin: 10px;
   color: #20bf6b;
   border: 1px solid #f6b93b;
- 
 }
 
-.container{
+.container {
   display: flex;
 }
 
-#friendInfo{
+#friendInfo {
   width: 50%;
   list-style: none;
   margin: 10px 0px;
   padding: 10px 0px;
 }
 
-#friendInfo li{
+#friendInfo li {
   background: #f4f4f4;
   margin-bottom: 5px;
   padding: 10px 20px;
@@ -28,7 +26,7 @@
   display: flex;
 }
 
-#jokeInfo p{
+#jokeInfo p {
   background: #f4f4f4;
   margin: 10px 0 10px 0;
   padding: 15px 10px;
@@ -37,12 +35,12 @@
   font-size: large;
 }
 
-#friendInfo li span{
+#friendInfo li span {
   width: 150px;
   padding-right: 100px;
 }
 
-.friendImage{
+.friendImage {
   width: 50%;
   padding: 0 10px;
   margin: 0 10px;
@@ -53,12 +51,12 @@
   border-radius: 10%;
 }
 
-#dogBox{
+#dogBox {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
-.dogImage{
+.dogImage {
   width: 390px;
   height: 390px;
   padding: 10px;
@@ -85,19 +83,19 @@
   transition: all 0.4s ease 0s;
 }
 
-#loading{
+#loading {
   color: black;
   font-size: large;
   padding-top: 5px;
 }
 
-#error{
+#error {
   color: red;
   font-size: large;
   padding-top: 5px;
 }
 
-.initialDog{
+.initialDog {
   color: black;
   font-size: large;
   padding-top: 5px;

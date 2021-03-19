@@ -1,0 +1,99 @@
+.search {
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.searchInput {
+  width: 600px;
+  height: 30px;
+  margin: 10px;
+  padding-left: 20px;
+  border-radius: 20px;
+  font-size: large;
+  border: 1px solid skyblue !important;
+  transition: all 0.3s ease 0s;
+}
+
+.searchSubmit {
+  height: 35px;
+  width: 150px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: large;
+  color: skyblue !important;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 4px solid skyblue !important;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.searchInput:hover,
+.searchInput:focus,
+.searchSubmit:hover {
+  color: #ffffff !important;
+  background: skyblue;
+  border-color: skyblue !important;
+  transition: all 0.4s ease 0s;
+}
+
+.weatherImage {
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
+}
+
+.cityWeather {
+  display: flex;
+  align-content: space-around;
+  width: 600px;
+  margin: 70px auto;
+  padding: 0px 50px;
+  border-radius: 20px;
+  background-color: lightblue;
+  border: 4px solid lightblue !important;
+}
+.city {
+  width: 70%;
+  text-align: left;
+}
+
+.city h1 {
+  padding: 0;
+}
+
+.city h3 {
+  margin-top: -20px;
+  font-weight: normal;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.city p {
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#loading {
+  color: black;
+  font-size: large;
+  padding-top: 5px;
+}
+
+#error {
+  color: red;
+  font-size: large;
+  padding-top: 5px;
+}
+
+#headerCityPage {
+  padding: 20px;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+#headerCityPage:hover {
+  color: skyblue;
+}
