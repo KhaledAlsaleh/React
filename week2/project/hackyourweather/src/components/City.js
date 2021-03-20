@@ -7,8 +7,8 @@ const City = ({ props }) => {
         </h1>
         <h2>{props.weather[0].main}</h2>
         <h3>{props.weather[0].description}</h3>
-        <p>min temp: {props.main.temp_min}</p>
-        <p>max temp: {props.main.temp_max}</p>
+        <p>min temp: {props.main.temp_min} °C</p>
+        <p>max temp: {props.main.temp_max} °C</p>
         <p>
           location: {props.coord.lat}, {props.coord.lon}
         </p>

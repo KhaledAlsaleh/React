@@ -7,30 +7,38 @@ const Search = () => {
   const [isLoading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [invalidRequest, setInvalidRequest] = useState(false);
+  const [emptyCityName, setEmptyCityName] = useState(false);
 
   const fetchWeatherInformation = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
-        setLoading(false);
-        setHasError(false);
-        setInvalidRequest(false);
-      } else {
-        setHasError(false);
+    if (cityName) {
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setData(data);
+          setLoading(false);
+          setHasError(false);
+          setEmptyCityName(false);
+          setInvalidRequest(false);
+        } else {
+          setHasError(false);
+          setData();
+          setEmptyCityName(false);
+          setInvalidRequest(true);
+          setLoading(false);
+        }
+      } catch {
         setData();
-        setInvalidRequest(true);
+        setEmptyCityName(false);
+        setInvalidRequest(false);
+        setHasError(true);
         setLoading(false);
       }
-    } catch {
-      setData();
-      setInvalidRequest(false);
-      setHasError(true);
-      setLoading(false);
+    } else {
+      setEmptyCityName(true);
     }
   };
 
@@ -62,7 +70,10 @@ const Search = () => {
       )}
       {cityName && data && <City props={data} />}
       {hasError && <p id='error'>Something Went Wrong!</p>}
-      {invalidRequest && <p id='error'>Please Enter Correct City Name!</p>}
+      {invalidRequest && (
+        <p id='error'>City Name Not Found, Please Enter Correct City Name!</p>
+      )}
+      {emptyCityName && <p id='error'>Please Enter City Name!</p>}
     </div>
   );
 };
