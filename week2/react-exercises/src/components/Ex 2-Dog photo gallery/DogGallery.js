@@ -18,8 +18,7 @@ const DogGallery = () => {
       setLoading(false);
     }
   };
-  // console.log(dogPhotos);
-  // dogPhotos.forEach(dogPhoto =>console.log(dogPhoto));
+
   return (
     <div className='exerciseBlock'>
       <h2>Exercise 2</h2>
