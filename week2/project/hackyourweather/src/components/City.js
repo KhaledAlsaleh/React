@@ -3,7 +3,7 @@ const City = ({ props }) => {
     <div className='cityWeather'>
       <div className='city'>
         <h1>
-          {props.name}, {props.sys.country}
+          {props.name}, {props.sys.country} - {props.weather[0].main}
         </h1>
         <h2>{props.weather[0].main}</h2>
         <h3>{props.weather[0].description}</h3>

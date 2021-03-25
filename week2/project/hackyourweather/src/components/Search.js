@@ -4,7 +4,7 @@ import City from './City';
 const Search = () => {
   const [cityName, setCityName] = useState('');
   const [data, setData] = useState();
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [invalidRequest, setInvalidRequest] = useState(false);
   const [emptyCityName, setEmptyCityName] = useState(false);
@@ -12,14 +12,14 @@ const Search = () => {
   const fetchWeatherInformation = async () => {
     if (cityName) {
       try {
-        setLoading(true);
+        setIsLoading(true);
         const response = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
         );
         if (response.ok) {
           const data = await response.json();
           setData(data);
-          setLoading(false);
+          setIsLoading(false);
           setHasError(false);
           setEmptyCityName(false);
           setInvalidRequest(false);
@@ -28,14 +28,14 @@ const Search = () => {
           setData();
           setEmptyCityName(false);
           setInvalidRequest(true);
-          setLoading(false);
+          setIsLoading(false);
         }
       } catch {
         setData();
         setEmptyCityName(false);
         setInvalidRequest(false);
         setHasError(true);
-        setLoading(false);
+        setIsLoading(false);
       }
     } else {
       setEmptyCityName(true);

@@ -3,11 +3,9 @@
 
 const Button = ({ onClickHandler }) => {
   return (
-    <>
-      <button className='btn' onClick={onClickHandler}>
-        Get a dog!
-      </button>
-    </>
+    <button className='btn' onClick={onClickHandler}>
+      Get a dog!
+    </button>
   );
 };
 
