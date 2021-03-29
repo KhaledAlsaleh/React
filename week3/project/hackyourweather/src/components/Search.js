@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import City from './City';
 
 const Search = () => {
@@ -8,6 +8,7 @@ const Search = () => {
   const [invalidRequest, setInvalidRequest] = useState(false);
   const [emptyCityName, setEmptyCityName] = useState(false);
   const [cityList, setCityList] = useState([]);
+  const [submit, setSubmit] = useState(false);
 
   const fetchWeatherInformation = async () => {
     if (cityName) {
@@ -19,7 +20,7 @@ const Search = () => {
         if (response.ok) {
           const newCity = await response.json();
           setCityList((cityList) => {
-            if (cityList.some((city) => city.name === newCity.name))
+            if (cityList.some((city) => city.id === newCity.id))
               return [...cityList];
             else {
               return [newCity, ...cityList];
@@ -52,8 +53,12 @@ const Search = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    fetchWeatherInformation();
+    setSubmit(!submit);
   };
+
+  useEffect(() => {
+    fetchWeatherInformation();
+  }, [submit]);
 
   return (
     <div className='search'>
