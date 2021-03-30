@@ -28,19 +28,18 @@ const Search = () => {
             return [newCity, ...cityList];
           }
         });
-        setIsLoading(false);
         setHasError(false);
         setInvalidRequest(false);
       } else {
         setCityExist(false);
         setHasError(false);
         setInvalidRequest(true);
-        setIsLoading(false);
       }
     } catch {
       setInvalidRequest(false);
       setHasError(true);
       setCityExist(false);
+    } finally {
       setIsLoading(false);
     }
   };
