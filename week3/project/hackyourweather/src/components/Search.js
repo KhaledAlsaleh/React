@@ -9,6 +9,7 @@ const Search = () => {
   const [emptyCityName, setEmptyCityName] = useState(false);
   const [cityList, setCityList] = useState([]);
   const [submit, setSubmit] = useState(false);
+  const [cityExist, setCityExist] = useState(false);
 
   const fetchWeatherInformation = async () => {
     if (cityName) {
@@ -20,9 +21,12 @@ const Search = () => {
         if (response.ok) {
           const newCity = await response.json();
           setCityList((cityList) => {
-            if (cityList.some((city) => city.id === newCity.id))
+            // I don't want search for a city twice
+            if (cityList.some((city) => city.id === newCity.id)) {
+              setCityExist(true);
               return [...cityList];
-            else {
+            } else {
+              setCityExist(false);
               return [newCity, ...cityList];
             }
           });
@@ -85,6 +89,12 @@ const Search = () => {
         <p id='loading'>Loading....</p>
       )}
       {hasError && <p id='error'>Something Went Wrong!</p>}
+      {cityExist && (
+        <p id='error'>
+          You Have Already Searched For This City, You Can Find It In Search
+          History
+        </p>
+      )}
       {invalidRequest && (
         <p id='error'>City Name Not Found, Please Enter Correct City Name!</p>
       )}
