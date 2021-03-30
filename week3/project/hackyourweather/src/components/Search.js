@@ -6,48 +6,42 @@ const Search = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [invalidRequest, setInvalidRequest] = useState(false);
-  const [emptyCityName, setEmptyCityName] = useState(false);
   const [cityList, setCityList] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [cityExist, setCityExist] = useState(false);
 
   const fetchWeatherInformation = async () => {
-    if (cityName) {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
-        );
-        if (response.ok) {
-          const newCity = await response.json();
-          setCityList((cityList) => {
-            // I don't want search for a city twice
-            if (cityList.some((city) => city.id === newCity.id)) {
-              setCityExist(true);
-              return [...cityList];
-            } else {
-              setCityExist(false);
-              return [newCity, ...cityList];
-            }
-          });
-          setIsLoading(false);
-          setHasError(false);
-          setEmptyCityName(false);
-          setInvalidRequest(false);
-        } else {
-          setHasError(false);
-          setEmptyCityName(false);
-          setInvalidRequest(true);
-          setIsLoading(false);
-        }
-      } catch {
-        setEmptyCityName(false);
+    try {
+      setIsLoading(true);
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
+      );
+      if (response.ok) {
+        const newCity = await response.json();
+        setCityList((cityList) => {
+          // I don't want search for a city twice or more
+          if (cityList.some((city) => city.id === newCity.id)) {
+            setCityExist(true);
+            return [...cityList];
+          } else {
+            setCityExist(false);
+            return [newCity, ...cityList];
+          }
+        });
+        setIsLoading(false);
+        setHasError(false);
         setInvalidRequest(false);
-        setHasError(true);
+      } else {
+        setCityExist(false);
+        setHasError(false);
+        setInvalidRequest(true);
         setIsLoading(false);
       }
-    } else {
-      setEmptyCityName(true);
+    } catch {
+      setInvalidRequest(false);
+      setHasError(true);
+      setCityExist(false);
+      setIsLoading(false);
     }
   };
 
@@ -95,10 +89,9 @@ const Search = () => {
           History
         </p>
       )}
-      {invalidRequest && (
+      {cityName && invalidRequest && (
         <p id='error'>City Name Not Found, Please Enter Correct City Name!</p>
       )}
-      {emptyCityName && <p id='error'>Please Enter City Name!</p>}
       {cityList &&
         cityList.map((city) => (
           <City
