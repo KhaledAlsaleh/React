@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import City from './City';
 
 const Search = () => {
@@ -9,6 +9,8 @@ const Search = () => {
   const [cityList, setCityList] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [cityExist, setCityExist] = useState(false);
+
+  const refContainer = useRef(null);
 
   const fetchWeatherInformation = async () => {
     try {
@@ -57,6 +59,10 @@ const Search = () => {
     fetchWeatherInformation();
   }, [submit]);
 
+  useEffect(() => {
+    refContainer.current.focus();
+  });
+
   return (
     <div className='search'>
       <h1 id='headerCityPage'>Weather App</h1>
@@ -66,6 +72,7 @@ const Search = () => {
           type='text'
           placeholder='Search City'
           value={cityName}
+          ref={refContainer}
           onChange={(e) => {
             setCityName(e.target.value);
             setInvalidRequest(false);
