@@ -15,6 +15,7 @@ const Search = () => {
     cityExist,
     setCityList,
     setCityNotFound,
+    setCityExist,
     fetchWeatherInformation,
   } = useFetch(url);
 
@@ -50,6 +51,7 @@ const Search = () => {
           onChange={(e) => {
             setCityName(e.target.value);
             setCityNotFound(false);
+            setCityExist(false);
           }}
         />
         <input

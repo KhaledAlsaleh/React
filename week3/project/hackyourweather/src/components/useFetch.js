@@ -47,6 +47,7 @@ const useFetch = (url) => {
     cityExist,
     setCityList,
     setCityNotFound,
+    setCityExist,
     fetchWeatherInformation,
   };
 };
