@@ -65,16 +65,6 @@
   text-align: left;
 }
 
-.city h1 {
-  padding: 0;
-}
-
-.city h3 {
-  margin-top: -20px;
-  font-weight: normal;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 .city p {
   font-size: 18px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
