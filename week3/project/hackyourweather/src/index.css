@@ -88,19 +88,19 @@
   cursor: pointer;
 }
 
-#loading {
+.loading {
   color: black;
   font-size: large;
   padding-top: 5px;
 }
 
-#error {
+.error {
   color: red;
   font-size: large;
   padding-top: 5px;
 }
 
-#headerCityPage {
+.headerCityPage {
   padding: 20px;
   color: black;
   text-align: center;
@@ -108,6 +108,6 @@
   transition: all 0.3s ease 0s;
 }
 
-#headerCityPage:hover {
+.headerCityPage:hover {
   color: skyblue;
 }
