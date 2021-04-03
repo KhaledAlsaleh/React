@@ -54,12 +54,13 @@ const Search = () => {
             setCityExist(false);
           }}
         />
-        <input
+        <button
           className='searchSubmit'
           type='submit'
-          value='Search'
           disabled={!cityName && true}
-        />
+        >
+          Search
+        </button>
       </form>
       {isLoading && <p className='loading'>Loading....</p>}
       {hasError && <p className='error'>Something Went Wrong!</p>}
@@ -74,14 +75,13 @@ const Search = () => {
           City Name Not Found, Please Enter Correct City Name!
         </p>
       )}
-      {cityList &&
-        cityList.map((city) => (
-          <City
-            props={city}
-            key={city.id}
-            deleteHandler={() => deleteCity(city.id)}
-          />
-        ))}
+      {cityList.map((city) => (
+        <City
+          city={city}
+          key={city.id}
+          deleteHandler={() => deleteCity(city.id)}
+        />
+      ))}
     </div>
   );
 };

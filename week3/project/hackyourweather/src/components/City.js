@@ -1,7 +1,7 @@
 import { FaTimes } from 'react-icons/fa';
 
-const City = ({ props, deleteHandler }) => {
-  const { name, sys, weather, main, coord, id } = props;
+const City = ({ city, deleteHandler }) => {
+  const { name, sys, weather, main, coord, id } = city;
   return (
     <div className='cityWeather'>
       <div className='city'>
