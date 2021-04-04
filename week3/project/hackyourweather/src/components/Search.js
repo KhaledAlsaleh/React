@@ -4,7 +4,6 @@ import City from './City';
 
 const Search = () => {
   const [cityName, setCityName] = useState('');
-  const [submit, setSubmit] = useState(false);
   const refContainer = useRef(null);
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`;
   const {
@@ -25,14 +24,8 @@ const Search = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setSubmit(!submit);
+    fetchWeatherInformation();
   };
-
-  useEffect(() => {
-    if (cityName) {
-      fetchWeatherInformation();
-    }
-  }, [submit]);
 
   useEffect(() => {
     refContainer.current.focus();
