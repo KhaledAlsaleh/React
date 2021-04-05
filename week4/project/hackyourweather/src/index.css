@@ -1,0 +1,151 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+p {
+  padding: 5px;
+  margin: 5px;
+}
+
+.search {
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.searchInput {
+  width: 600px;
+  height: 30px;
+  margin: 10px;
+  padding-left: 20px;
+  border-radius: 20px;
+  font-size: large;
+  border: 1px solid skyblue;
+  transition: all 0.3s ease 0s;
+}
+
+.searchSubmit {
+  height: 35px;
+  width: 150px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: large;
+  color: skyblue;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 4px solid skyblue;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.backHome:hover,
+.searchInput:hover,
+.searchInput:focus,
+.searchSubmit:hover {
+  color: #ffffff;
+  background: skyblue;
+  border-color: skyblue;
+  transition: all 0.4s ease 0s;
+}
+
+.searchSubmit:disabled {
+  color: #ffffff;
+  background: #ddd;
+  border-color: #ddd;
+}
+
+.weatherImage {
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
+}
+
+.cityWeather {
+  display: flex;
+  align-content: space-around;
+  width: 600px;
+  margin: 70px auto;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: lightblue;
+  border: 4px solid lightblue;
+}
+.city {
+  width: 70%;
+  text-align: left;
+}
+
+.city p {
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.loading {
+  color: black;
+  font-size: large;
+  padding-top: 5px;
+}
+
+.error {
+  color: red;
+  font-size: large;
+}
+
+.headerCityPage {
+  padding: 20px;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.headerCityPage:hover {
+  color: skyblue;
+}
+
+.navbar {
+  height: 100px;
+  background-color: skyblue;
+}
+
+.navbarList {
+  padding-top: 40px;
+  display: flex;
+  list-style: none;
+  letter-spacing: 5px;
+  justify-content: space-around;
+}
+
+.listItem {
+  text-decoration: none;
+  color: black;
+}
+
+.routePage {
+  text-align: center;
+  padding: 30px;
+  margin: 30px;
+}
+
+.routePage h2 {
+  padding: 10px 10px 50px 10px;
+  margin: 10px;
+}
+
+.backHome {
+  color: black;
+  background-color: skyblue;
+  padding: 20px;
+  margin: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 2px solid #eee;
+}
