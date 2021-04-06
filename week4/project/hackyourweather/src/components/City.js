@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 
 const City = ({ city, deleteHandler }) => {
   const { name, sys, weather, main, coord, id } = city;
   return (
     <div className='cityWeather'>
-      <div className='city'>
+      <Link to={`/${name}/${id}`} className='city'>
         <h1>
           {name} - {sys.country}
         </h1>
@@ -16,7 +17,7 @@ const City = ({ city, deleteHandler }) => {
         <p>
           location: {coord.lat}, {coord.lon}
         </p>
-      </div>
+      </Link>
       <img
         className='weatherImage'
         src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}

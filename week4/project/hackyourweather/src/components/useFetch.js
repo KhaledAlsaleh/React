@@ -6,6 +6,7 @@ const useFetch = (url) => {
   const [cityNotFound, setCityNotFound] = useState(false);
   const [cityList, setCityList] = useState([]);
   const [cityExist, setCityExist] = useState(false);
+  const [forecastData, setForecastData] = useState();
 
   const fetchWeatherInformation = async () => {
     try {
@@ -39,6 +40,31 @@ const useFetch = (url) => {
     }
   };
 
+  const fetchForecastInformation = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        setForecastData(
+          data.list.map((day) => {
+            return {
+              date: day.dt_txt,
+              temp: day.main.temp,
+            };
+          })
+        );
+        setHasError(false);
+      }
+    } catch {
+      setCityNotFound(false);
+      setHasError(true);
+      setCityExist(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return {
     isLoading,
     hasError,
@@ -48,7 +74,9 @@ const useFetch = (url) => {
     setCityList,
     setCityNotFound,
     setCityExist,
+    forecastData,
     fetchWeatherInformation,
+    fetchForecastInformation,
   };
 };
 
